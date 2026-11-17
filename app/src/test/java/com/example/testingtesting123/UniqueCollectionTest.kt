@@ -29,6 +29,8 @@ class UniqueCollectionTest {
         collection.addItem(Item("Apple"))
         collection.addItem(Item("apple"))
         collection.addItem(Item("BANANA"))
+        collection.addItem(Item("   apple"))
+        collection.addItem(Item("AppLE   "))
         assert(collection.size() == 2)
     }
 
