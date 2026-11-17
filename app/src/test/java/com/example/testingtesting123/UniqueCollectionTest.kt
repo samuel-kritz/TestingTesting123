@@ -1,5 +1,6 @@
 package com.example.testingtesting123
 
+import org.junit.Assert.assertThrows
 import org.junit.Before
 import org.junit.Test
 
@@ -16,6 +17,7 @@ class UniqueCollectionTest {
     // TODO 1: Write a test to ensure items can be added to the collection
     @Test
     fun addAnItem() {
+        assert(collection.size() == 0)
         collection.addItem(Item("Apple"))
         val item = collection.get(0)
         val size = collection.size()
@@ -55,5 +57,12 @@ class UniqueCollectionTest {
         collection.remove(Item("GRAPE"))
         val newSize = collection.size()
         assert(originalSize == 2 && newSize == 1) {"Item not removed"}
+    }
+
+    @Test
+    fun getThrowsOnEmptyCollection() {
+        assertThrows(IndexOutOfBoundsException::class.java) {
+            collection.get(0)
+        }
     }
 }
